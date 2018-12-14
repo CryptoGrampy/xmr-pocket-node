@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout="@layout/activity_theme">
+
+    <EditTextPreference
+        android:key="none"
+        android:summary=""
+        android:height="?attr/actionBarSize"
+        android:title="" />
+    <EditTextPreference
+        android:key="none2"
+        android:summary=""
+        android:height="8dp"
+        android:title="" />
+
+    <PreferenceCategory android:title="@string/action_theme">
+        <ListPreference
+            android:key="theme"
+            android:summary="@string/summary_theme"
+            android:title="@string/title_theme"
+            android:defaultValue="0"
+            android:dialogTitle="@string/dialog_theme"
+            android:entries="@array/theme_titles"
+            android:entryValues="@array/theme_values"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>

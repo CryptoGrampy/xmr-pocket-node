@@ -1,0 +1,57 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:windowTranslucentStatus" >true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+    <style name="PreferencesThemeWownero1">
+        <item name="android:windowBackground">@drawable/wsolidcolor</item>
+        <item name="colorAccent">#fc4</item>
+        <item name="colorPrimaryDark">#fff</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#000</item>
+        <item name="android:alertDialogTheme">@style/StyledDialog</item>
+    </style>
+    <style name="PreferencesThemeWownero2">
+        <item name="android:windowBackground">@drawable/wcoin</item>
+        <item name="colorAccent">#fc4</item>
+        <item name="colorPrimaryDark">#fff</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:textColorSecondary">#000</item>
+        <item name="android:alertDialogTheme">@style/StyledDialog</item>
+    </style>
+    <style name="PreferencesThemeWownero3">
+        <item name="android:windowBackground">@drawable/wowario</item>
+        <item name="colorAccent">#fc4</item>
+        <item name="colorPrimaryDark">#fff</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:textColorSecondary">#000</item>
+        <item name="android:alertDialogTheme">@style/StyledDialog</item>
+    </style>
+    <style name="PreferencesThemeWownero4">
+        <item name="android:windowBackground">@drawable/w001</item>
+        <item name="colorAccent">#df23dd</item>
+        <item name="colorPrimaryDark">#fff</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:textColorSecondary">#000</item>
+        <item name="android:alertDialogTheme">@style/StyledDialog</item>
+    </style>
+    <style name="StyledDialog" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#000</item>
+        <item name="colorPrimaryDark">#000</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textColorSecondary">#000</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:background">#fff</item>
+    </style>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Fragments.LogSlideFragment"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/fragment_containerLog"
+        android:layout_width="0dp"
+        android:background="@null"
+        android:layout_height="?attr/actionBarSize" />
+
+    <ScrollView
+        android:id="@+id/logs_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+        android:id="@+id/logs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Waiting for logs....      "
+        android:textColor="#000000"
+        android:textSize="10sp"
+        android:scrollingCache="true"
+        android:background="@null"
+        android:visibility="visible"
+        android:maxLines = "500"
+        android:scrollbars = "vertical"
+        android:scrollHorizontally="false"
+        android:scrollbarStyle="insideOverlay"
+        android:textIsSelectable="true"
+        android:descendantFocusability="beforeDescendants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logs_scrollview" />
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

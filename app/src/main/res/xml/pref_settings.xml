@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"  >
+    <EditTextPreference
+        android:key="none"
+        android:summary=""
+        android:height="?attr/actionBarSize"
+        android:title="" />
+    <EditTextPreference
+        android:key="none2"
+        android:summary=""
+        android:height="8dp"
+        android:title="" />
+
+    <PreferenceCategory android:title="@string/storage">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_sd_card"
+            android:summary="@string/summary_use_sd_card"
+            android:title="@string/use_sd_card" />
+        <EditTextPreference
+            android:key="sd_storage"
+            android:summary="@string/summary_storage"
+            android:title="@string/title_storage" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_custom_storage"
+            android:summary="@string/summary_custom_storage"
+            android:title="@string/use_custom_storage" />
+        <EditTextPreference
+            android:key="sd_custom_storage"
+            android:summary="@string/summary_custom_storage"
+            android:title="@string/title_custom_storage" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/network_setttings">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="Testnet"
+            android:summary="@string/summary_testnet"
+            android:title="@string/title_testnet" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="Stagenet"
+            android:summary="@string/summary_stagenet"
+            android:title="@string/title_stagenet" />
+
+        <EditTextPreference
+            android:key="p2pBindPort"
+            android:summary="@string/summary_p2pBindPort"
+            android:title="@string/title_p2pBindPort"
+            android:numeric="integer"/>
+
+        <EditTextPreference
+            android:key="rpcBindPort"
+            android:summary="@string/summary_rpcBindPort"
+            android:title="@string/title_rpcBindPort"
+            android:numeric="integer"/>
+
+        <EditTextPreference
+            android:key="zmqBindPort"
+            android:summary="@string/summary_zmqBindPort"
+            android:title="@string/title_zmqBindPort"
+            android:numeric="integer"/>
+
+        <EditTextPreference
+            android:key="blockSyncSize"
+            android:summary="@string/summary_blockSyncSize"
+            android:title="@string/title_blockSyncSize"
+            android:numeric="integer"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="fast_bloc_sync"
+            android:summary="@string/summary_fastblock_sync"
+            android:title="@string/fastblock_sync" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/nodes">
+        <EditTextPreference
+            android:key="peerNode"
+            android:summary="@string/summary_peerNode"
+            android:title="@string/title_peerNode"/>
+
+        <EditTextPreference
+            android:key="exclusiveNode"
+            android:summary="@string/summary_exclusiveNode"
+            android:title="@string/title_exclusiveNode"/>
+
+        <EditTextPreference
+            android:key="priorityNode"
+            android:summary="@string/summary_priorityNode"
+            android:title="@string/title_priorityNode"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/Bandwith">
+        <EditTextPreference
+            android:key="limitRate"
+            android:summary="@string/summary_limitRate"
+            android:title="@string/title_limitRate"
+            android:numeric="integer"/>
+
+        <EditTextPreference
+            android:key="limitRateDown"
+            android:summary="@string/summary_limitRateDown"
+            android:title="@string/title_limitRateDown"
+            android:numeric="integer"/>
+
+        <EditTextPreference
+            android:key="limitRateUp"
+            android:summary="@string/summary_limitRateUp"
+            android:title="@string/title_limitRateUp"
+            android:numeric="integer"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/Peers">
+        <EditTextPreference
+            android:key="outPeers"
+            android:summary="@string/summary_outPeers"
+            android:title="@string/title_outPeers"
+            android:numeric="integer"/>
+
+        <EditTextPreference
+            android:key="inPeers"
+            android:summary="@string/summary_inPeers"
+            android:title="@string/title_inPeers"
+            android:numeric="integer"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/Security">
+        <CheckBoxPreference
+            android:key="restricted_rpc"
+            android:defaultValue="true"
+            android:summary="@string/restricted_rpc_msg"
+            android:title="@string/restricted_rpc" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/Logs">
+        <ListPreference
+            android:key="loglevel"
+            android:summary="@string/summary_loglevel"
+            android:title="@string/title_loglevel"
+            android:defaultValue="0"
+            android:dialogTitle="@string/dialog_loglevel"
+            android:entries="@array/loglevel_titles"
+            android:entryValues="@array/log_level_values"
+            />
+    </PreferenceCategory>
+
+    <EditTextPreference
+        android:key="none"
+        android:summary=""
+        android:height="8dp"
+        android:title="" />
+
+</PreferenceScreen>

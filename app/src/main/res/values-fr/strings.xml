@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nœud crypto-monnaie Wownero</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="title_activity_settings">Paramètres</string>
+    <string name="action_about">A propos</string>
+    <string name="pref_about">A propos</string>
+    <string name="testnet">Environnement de test</string>
+    <string name="summary_testnet">Exécuter sur l\'environnement de test</string>
+    <string name="title_testnet">Environnement de test</string>
+    <string name="stagenet">Environnement de validation</string>
+    <string name="summary_stagenet">Exécuter sur l\'environnement de validation</string>
+    <string name="title_stagenet">Environnement de validation</string>
+    <string name="p2pBindPort">Port p2p</string>
+    <string name="summary_p2pBindPort">Laisser vide pour le port par défaut</string>
+    <string name="title_p2pBindPort">Port d\'écoute p2p</string>
+    <string name="rpcBindPort">Port RPC</string>
+    <string name="summary_rpcBindPort">Laisser vide pour le port par défaut</string>
+    <string name="title_rpcBindPort">Port RPC</string>
+    <string name="zmqBindPort">Port ZMQ</string>
+    <string name="summary_zmqBindPort">Laisser vide pour localhost (127.0.0.1)</string>
+    <string name="title_zmqBindPort">Adresse du serveur ZMQ</string>
+    <string name="limitRate">Limite de débit</string>
+    <string name="summary_limitRate">Configurer le débit maximal en kB/s</string>
+    <string name="title_limitRate">Limite de débit</string>
+    <string name="limitRateDown">Limite de débit descendant</string>
+    <string name="summary_limitRateDown">Configurer le débit maximal en kB/s</string>
+    <string name="title_limitRateDown">Limite de débit descendant</string>
+    <string name="summary_limitRateUp">Configurer le débit maximal en kB/s</string>
+    <string name="limitRateUp">Limite de débit montant</string>
+    <string name="title_limitRateUp">Limite de débit montant</string>
+    <string name="outPeers">Nombre de connexions sortantes</string>
+    <string name="summary_outPeers">Nombre maximal de connexions sortantes</string>
+    <string name="title_outPeers">Nombre de connexions sortantes</string>
+    <string name="inPeers">Nombre de connexions entrantes</string>
+    <string name="summary_inPeers">Nombre maximal de connexions entrantes</string>
+    <string name="title_inPeers">Nombre de connexions entrantes</string>
+    <string name="peerNode">Nœud amis</string>
+    <string name="summary_peerNode">Ajouter un nœud amis</string>
+    <string name="title_peerNode">Ajouter un nœud amis</string>
+    <string name="exclusiveNode">Nœud exclusif</string>
+    <string name="summary_exclusiveNode">Liste des nœuds exclusifs</string>
+    <string name="title_exclusiveNode">Nœud exclusif</string>
+    <string name="priorityNode">Nœud prioritaire</string>
+    <string name="summary_priorityNode">Entrer un nœud prioritaire</string>
+    <string name="title_priorityNode">Nœud prioritaire</string>
+    <string name="summary_about">Cette application permet de faire tourner un nœud de crypto monnaie Wownero sur votre téléphone. Pour faire des transactions en toute sécurité, connectez votre portefeuille sur ce nœud local.</string>
+    <string name="app_version">1.1</string>
+    <string name="daemon_version">N/A</string>
+    <string name="title_daemon_version">Version logicielle du nœud Wownero</string>
+    <string name="summary_support">Des idées pour nous aider? Des problèmes d\'utilisation. Rendez vous sur https://github.com/enerc/Aeon-daemon</string>
+    <string name="title_support">Votre avis</string>
+    <string name="action_log">Traces</string>
+    <string name="log_content">Contenus des traces</string>
+    <string name="donation">Dons</string>
+    <string name="peers_connected">nœuds connectés</string>
+    <string name="address_selected_msg">Adresse sélectionnée</string>
+    <string name="logs_selected_msg">Traces selectionnées</string>
+    <string name="summary_theme">Choisir un thème</string>
+    <string name="title_theme">Thèmes</string>
+    <string name="dialog_theme">Choisir un thème</string>
+    <string name="action_theme">Thème</string>
+    <string name="restricted_rpc">Restreindre l\'accès RPC distant</string>
+    <string name="restricted_rpc_msg">Empêche les inconnus d\'accéder à votre nœud.</string>
+    <string name="daemon_was_killed">La synchronisation s\'est arrêtée</string>
+    <string name="msg_peers_connected">nœuds connectés</string>
+    <string name="download_at">Télécharge à</string>
+    <string name="use_sd_card">Utilise la carte SD</string>
+    <string name="title_storage">Chemin</string>
+    <string name="summary_storage">Chemin sur la carte SD</string>
+    <string name="use_custom_storage">Utilise un chemin spécifique</string>
+    <string name="title_custom_storage">Emplacement des données de la bloc chaine</string>
+    <string name="summary_custom_location">Ces données ne seront pas supprimée quand l\'application est désinstallée</string>
+    <string name="fastblock_sync">Synchronisation rapide des blocs</string>
+    <string name="summary_fastblock_sync">Utilise des blocs connus pour la synchonisation</string>
+    <string name="disk_used">GB libre</string>
+    <string name="daemon_not_running">Le process de synchonisation ne tourne pas</string>
+    <string name="sync_starting">Début de synchronisation</string>
+    <string name="sd_custom_error">Configuration invalide</string>
+    <string name="sd_custom_error_msg">Sélection simultanée de la carte SD et d\'un emplacement spécifique incompatible</string>
+    <string name="summary_blockSyncSize">0 = s\'adapte automatiquement</string>
+    <string name="title_blockSyncSize">Nombre de blocs pour la synchronisation</string>
+    <string name="summary_loglevel">Niveau de trace</string>
+    <string name="title_loglevel">Niveau</string>
+    <string name="dialog_loglevel">Chosir le niveau de trace</string>
+    <string name="storage">Stockage</string>
+    <string name="network_setttings">Paramètres réseau</string>
+    <string name="nodes">Nœuds</string>
+    <string name="Bandwith">Bande passante</string>
+    <string name="Peers">Nœuds amis</string>
+    <string name="Security">Sécurité</string>
+    <string name="Logs">Traces</string>
+
+    <string-array name="loglevel_titles">
+        <item>Erreur</item>
+        <item>Info</item>
+        <item>Debug</item>
+        <item>Trace</item>
+    </string-array>
+
+    <string-array name="log_level_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="theme_titles">
+        <item>Couleur unie</item>
+        <item>Coin WOW</item>
+        <item>Wownario</item>
+        <item>WOW!</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>PreferencesThemeWownero1</item>
+        <item>PreferencesThemeWownero2</item>
+        <item>PreferencesThemeWownero3</item>
+        <item>PreferencesThemeWownero4</item>
+    </string-array>
+
+    <string name="donation_aeon">Dons Wownero</string>
+    <string name="donation_xmr">Dons XMR</string>
+    <string name="apropos">Qui suis-je?</string>
+    <string name="height">Bloc</string>
+    <string name="target">Dernier bloc</string>
+
+</resources>
