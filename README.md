@@ -7,7 +7,7 @@ Wownero node for your Android phone. This is wownerod packaged in an Android App
 
 Make sure you enabled unknown sources in Android configuration (settings -> Security).
 
-They download the app here: <a href="https://github.com/enerc/Aeon-daemon/raw/wownero/app/release/app-release.apk">Download and install...</a>
+They download the app here: <a href="https://github.com/enerc/wownero-daemon/raw/master/app/release/app-release.apk">Download and install...</a>
 
 
 
