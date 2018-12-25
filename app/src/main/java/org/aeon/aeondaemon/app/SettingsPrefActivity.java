@@ -22,6 +22,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
@@ -141,6 +143,7 @@ public class SettingsPrefActivity extends AppCompatPreferenceActivity {
         }
         getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, MainActivity.getToolbarBg(context)));
         setTheme(MainActivity.getStyle(getApplicationContext()));
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
     }
 
     public static class MainPreferenceFragment extends PreferenceFragment {

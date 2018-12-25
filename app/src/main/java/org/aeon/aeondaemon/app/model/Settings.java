@@ -44,6 +44,8 @@ public class Settings {
     private boolean useCustomStorage=false;
     private boolean fastBlocSync=false;
 
+    private boolean usePruning=true;
+
     public boolean isUseSDCard() {
         return useSDCard;
     }
@@ -235,4 +237,14 @@ public class Settings {
     public void setUseCustomStorage(boolean useCustomStorage) {
         this.useCustomStorage = useCustomStorage;
     }
+
+
+    public boolean usePruning() {
+        return usePruning;
+    }
+
+    public void setUsePruning(boolean usePruning) {
+        this.usePruning = usePruning;
+    }
+
 }

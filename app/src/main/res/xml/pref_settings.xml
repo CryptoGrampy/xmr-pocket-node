@@ -74,6 +74,13 @@
             android:key="fast_bloc_sync"
             android:summary="@string/summary_fastblock_sync"
             android:title="@string/fastblock_sync" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pruning"
+            android:summary="@string/pruning_msg"
+            android:title="@string/pruning" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/nodes">

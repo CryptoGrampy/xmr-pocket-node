@@ -127,6 +127,10 @@ public class CollectPreferences {
                 Boolean t = prefs.getBoolean("fast_bloc_sync",false);
                 collectedPreferences.setFastBlocSync(t.booleanValue());
             }
+            if (entry.getKey().equals("pruning")) {
+                Boolean t = prefs.getBoolean("pruning",true);
+                collectedPreferences.setUsePruning(t.booleanValue());
+            }
 
         }
     }

@@ -124,5 +124,7 @@
     <string name="apropos">Qui suis-je?</string>
     <string name="height">Bloc</string>
     <string name="target">Dernier bloc</string>
+    <string name="pruning">Pruning de la blockchain</string>
+    <string name="pruning_msg">Réduit la taille sur le disque</string>
 
 </resources>

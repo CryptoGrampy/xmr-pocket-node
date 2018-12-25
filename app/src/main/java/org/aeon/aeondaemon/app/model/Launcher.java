@@ -224,12 +224,13 @@ public class Launcher {
         if (pref.getAddPriorityNode() != null) a.add("--add-priority-node "+pref.getAddPriorityNode());
         if (pref.getRestrictedRpc()) a.add("--restricted-rpc ");
         if (pref.isFastBlocSync()) a.add("--fast-block-sync 1 ");
+        //if (pref.usePruning()) a.add("--prune-blockchain ");
 
         String ret = "";
         for (String s : a) {
             ret += s + " ";
         }
-        // set Safe and LMDB sync mode. This should prevent LMDB corruption when android kill the daemon.
+        // set Safe and LMDB sync mode. This should prevent LMDB corruption when android kills the daemon.
         ret += "--db-sync-mode safe:sync ";
         return ret;
     }

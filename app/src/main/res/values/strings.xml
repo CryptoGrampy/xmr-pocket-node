@@ -157,5 +157,7 @@
     <string name="title_loglevel">Level</string>
     <string name="dialog_loglevel">Select the daemon log level</string>
 
+    <string name="pruning">Prune blockchain</string>
+    <string name="pruning_msg">Reduce stored size</string>
 
 </resources>
