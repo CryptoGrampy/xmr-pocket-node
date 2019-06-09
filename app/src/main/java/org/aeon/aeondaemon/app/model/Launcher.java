@@ -111,14 +111,14 @@ public class Launcher {
 
                 // Try to get wownerod version and build number
                 if (version == null) {
-                    int i = logs.toString().indexOf("src/daemon/main.cpp");
-                    if (i != -1) {
+                    int i = 0; //logs.toString().indexOf("I Wownero");
+                    //if (i != -1) {
                         int j = logs.toString().substring(i).indexOf("Wownero '");
                         if (j != -1) {
                             int k = logs.toString().substring(i+j).indexOf(")");
                             version =  logs.toString().substring(i+j,i+j+k+1);
                         }
-                    }
+                    //}
                 }
 
                 // Update Height and target
