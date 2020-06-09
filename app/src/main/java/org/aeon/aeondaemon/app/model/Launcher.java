@@ -224,7 +224,7 @@ public class Launcher {
         if (pref.getAddPriorityNode() != null) a.add("--add-priority-node "+pref.getAddPriorityNode());
         if (pref.getRestrictedRpc()) a.add("--restricted-rpc ");
         if (pref.isFastBlocSync()) a.add("--fast-block-sync 1 ");
-        //if (pref.usePruning()) a.add("--prune-blockchain ");
+        if (pref.usePruning()) a.add("--prune-blockchain ");
 
         String ret = "";
         for (String s : a) {
