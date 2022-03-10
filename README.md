@@ -2,6 +2,17 @@
 
 WORK IN PROGRESS.  USE AT YOUR OWN RISK.
 
+Forked this project from an Aeon/Wownero repo.  I was able to get it running in Android Studio on a Google Pixel phone in combination with the Android ARMv8 Monerod binary.  Please feel free to replace the existing binary in the repo (monerod64) with your own. 
+
+The app has a pretty poor/ugly yet functional existing UI, but I would like to take it in this direction from a style standpoint:
+
+<center> 
+<figure>
+<img src="assets/pocketnode-inspiration.png" width="400">
+<figcaption>Inspiration</figcaption>
+</figure>
+</center>
+
 Monero node for your Android phone. This is monerod packaged in an Android App. 
 
 
