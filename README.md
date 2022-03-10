@@ -1,6 +1,6 @@
 # Monero PocketNode
 
-WORK IN PROGRESS.  USE AT YOUR OWN RISK.
+WORK IN PROGRESS.  USE AT YOUR OWN RISK.  PR'S WELCOME!  I DON'T KNOW HOW TO WRITE ANDROID APPS.
 
 Forked this project from an Aeon/Wownero repo.  I was able to get it running in Android Studio on a Google Pixel phone in combination with the Android ARMv8 Monerod binary.  Please feel free to replace the existing binary in the repo (monerod64) with your own. 
 
