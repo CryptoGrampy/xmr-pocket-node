@@ -3,4 +3,5 @@ build
 gradle
 .gradle
 .idea
+.vscode
 app/release/*
