@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    lintOptions {
+        abortOnError false
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "org.wownero.wownerodaemon.app"

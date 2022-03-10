@@ -113,7 +113,7 @@ public class Launcher {
                 if (version == null) {
                     int i = 0; //logs.toString().indexOf("I Wownero");
                     //if (i != -1) {
-                        int j = logs.toString().substring(i).indexOf("Wownero '");
+                        int j = logs.toString().substring(i).indexOf("Monero '");
                         if (j != -1) {
                             int k = logs.toString().substring(i+j).indexOf(")");
                             version =  logs.toString().substring(i+j,i+j+k+1);
@@ -277,7 +277,7 @@ public class Launcher {
             BufferedReader bReader = new BufferedReader(isReader);
             String strLine = null;
             while ((strLine = bReader.readLine()) != null) {
-                int i = strLine.lastIndexOf("wownerod");
+                int i = strLine.lastIndexOf("monerod");
                 if (i > 0 && !(strLine.length() > i+8 && strLine.charAt(i+8) == 'a')) {
                     processState = ProcessState.RUNNING;
                     return true;

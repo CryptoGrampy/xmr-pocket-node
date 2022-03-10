@@ -49,7 +49,7 @@ public class SynchronizeThread implements Runnable  {
                     launcher.updateStatus();
                     String msg = "";
                     if (launcher.getLogs().length() > 0) msg = launcher.getLogs();
-                    else msg = "wownerod process failed to start. err=" + status;
+                    else msg = "monerod process failed to start. err=" + status;
                     MainSlideFragment.execError = msg;
                 }
             } else if (launcher.isAlive()) {
