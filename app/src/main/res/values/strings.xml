@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Wownero daemon</string>
+    <string name="app_name">pocketnode</string>
 
     <string name="storage">storage</string>
     <string name="network_setttings">Network settings</string>

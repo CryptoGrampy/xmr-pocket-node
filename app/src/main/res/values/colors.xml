@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    TODO: Remove these old colors -->
     <color name="colorPrimary">#2c89a0</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+<!--    Updated Colors -->
+    <color name="newColorPrimary">#FF6C60</color>
+    <color name="navBackground">#222222</color>
+    <color name="bodyBackground">#0F0F0F</color>
+    <color name="mainTextColor">#FFF</color>
 </resources>

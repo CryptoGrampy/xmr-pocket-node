@@ -31,48 +31,19 @@
         />
 
     <TextView
-        android:id="@+id/aeon_msg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:gravity="left"
-        android:text="@string/donation_aeon"
-        android:textColor="#fc4"
-        android:textIsSelectable="true"
-        android:textSize="20sp"
-        android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@android:id/list"/>
-
-    <TextView
-        android:id="@+id/aeon_msg_val"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:gravity="left"
-        android:text="@string/donation_aeon_addr"
-        android:textIsSelectable="false"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/aeon_msg"/>
-
-    <TextView
         android:id="@+id/xmr_msg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:gravity="left"
+        android:gravity="start"
         android:text="@string/donation_xmr"
         android:textColor="#fc4"
         android:textIsSelectable="true"
         android:textSize="20sp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/aeon_msg_val" />
+        app:layout_constraintTop_toBottomOf="@android:id/list" />
 
     <TextView
         android:id="@+id/xmr_msg_val"
@@ -85,7 +56,7 @@
         android:textIsSelectable="false"
         android:textSize="14sp"
         android:visibility="visible"
-        android:gravity="left"
+        android:gravity="start"
         app:layout_constraintTop_toBottomOf="@+id/xmr_msg" />
 
     <TextView
@@ -95,7 +66,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:gravity="left"
+        android:gravity="start"
         android:text="@string/apropos"
         android:textColor="#fc4"
         android:textIsSelectable="true"

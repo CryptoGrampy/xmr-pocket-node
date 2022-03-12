@@ -41,7 +41,7 @@ public class AboutActivity extends AppCompatPreferenceActivity {
         setContentView(R.layout.activity_about);
         MainActivity.setAboutActivity(this);
 
-        TextView t = ((TextView)findViewById(R.id.aeon_msg_val));
+        TextView t = ((TextView)findViewById(R.id.xmr_msg_val));
         t.setOnClickListener(copyListener);
 
         t = ((TextView)findViewById(R.id.xmr_msg_val));
