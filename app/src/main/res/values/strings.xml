@@ -84,7 +84,7 @@
     <string name="donation_aeon_msg" translatable="false">Wownero</string>
     <string name="donation_aeon_addr" translatable="false">Wo3tBXLr9Sq7cyqHiwoYTTGc4EfPidFFUN6rPv4RdrWc1boYemdNsRyFbpq1nnDAbRYTb8QArzF86Be1AuiabmqA37mTGhw1u</string>
     <string name="donation_xmr_msg" translatable="false">XMR</string>
-    <string name="donation_xmr_addr" translatable="false">4AZSfpPFsLEgxpBVmNdoysYERDQiGu7daKB2WtWgKK1AGqeJBhRp4ZNjVPMARyoSpPb3WkGsQ7p5tKvKex9eJpFqRJQXvQZ</string>
+    <string name="donation_xmr_addr" translatable="false">8BudmXKZwpXhfVGCtgFPyKWgLcDLYJ5jRT95xCp4JMFWapgTLrun41AG6LPbef7WFA8T531QGnZT51cDF6uF9HECDhibEVw</string>
     <string name="apropos">About this app</string>
 
     <string name="title_version" translatable="false">Version</string>
