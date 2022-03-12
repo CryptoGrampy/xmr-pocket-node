@@ -123,6 +123,10 @@ public class CollectPreferences {
                 Integer t = Integer.parseInt(prefs.getString("loglevel","0"));
                 collectedPreferences.setLogLevel(t.intValue());
             }
+            if (entry.getKey().equals("enable_node")) {
+                Boolean t = prefs.getBoolean("enable_node", false);
+                collectedPreferences.setEnableNode(t.booleanValue());
+            }
             if (entry.getKey().equals("fast_bloc_sync")) {
                 Boolean t = prefs.getBoolean("fast_bloc_sync",false);
                 collectedPreferences.setFastBlocSync(t.booleanValue());

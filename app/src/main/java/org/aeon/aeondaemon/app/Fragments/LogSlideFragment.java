@@ -35,7 +35,7 @@ import org.aeon.aeondaemon.app.R;
 import org.aeon.aeondaemon.app.model.Launcher;
 import org.aeon.aeondaemon.app.model.SynchronizeThread;
 
-public class LogSlideFragment  extends Fragment {
+public class LogSlideFragment extends Fragment {
     private static final String TAG = LogSlideFragment.class.getSimpleName();
     private static long RefreshInterval = 1000;
     private ViewGroup rootView;

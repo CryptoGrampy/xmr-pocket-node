@@ -16,6 +16,7 @@
 package org.aeon.aeondaemon.app.model;
 
 public class Settings {
+    private boolean enableNode =false;
     private String dataDir=null;
     private String logFile="/dev/null";
     private int logLevel=0;
@@ -213,6 +214,10 @@ public class Settings {
     public void setLogLevel(int logLevel) {
         this.logLevel = logLevel;
     }
+
+    public boolean getIsEnableNode() { return enableNode; }
+
+    public void setEnableNode(boolean enableNode) { this.enableNode = enableNode; }
 
     public boolean isFastBlocSync() {
         return fastBlocSync;

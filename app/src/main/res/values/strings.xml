@@ -112,6 +112,8 @@
     <string name="summary_custom_storage" translatable="false"></string>
     <string name="title_custom_storage">Define your own blockchain storage location</string>
     <string name="summary_custom_location">Data won\'t be removed when uninstalling this app</string>
+    <string name="enable_node" translatable="false">Start Node</string>
+    <string name="summary_enable_node" translatable="false">Enable/Disable your node</string>
     <string name="fastblock_sync">Fast bloc sync</string>
     <string name="summary_fastblock_sync">Sync up most of the way by using embedded, known block hashes.</string>
     <string name="disk_used">GB free</string>

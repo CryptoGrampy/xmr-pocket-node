@@ -37,11 +37,13 @@ public class SynchronizeThread implements Runnable  {
     @Override
     public void run() {
         while (true) {
+            boolean nodeEnabled = CollectPreferences.collectedPreferences.getIsEnableNode();
+
             if (launcher == null) {
                 launcher = new Launcher();
                 updatePreferences();
             }
-            if (launcher.isStopped()) {
+            if (launcher.isStopped() && nodeEnabled) {
                 // Restart the background process
                 updatePreferences();        // properties may have been changed in the settings.
                 String status = launcher.start(CollectPreferences.collectedPreferences);
@@ -52,6 +54,12 @@ public class SynchronizeThread implements Runnable  {
                     else msg = "monerod process failed to start. err=" + status;
                     MainSlideFragment.execError = msg;
                 }
+            } else if (!nodeEnabled) {
+                if (!launcher.isStopped()) {
+                    launcher.exit();
+                }
+                updatePreferences();        // properties may have been changed in the settings.
+                launcher.updateStatus();
             } else if (launcher.isAlive()) {
                 if (counter >= SendSyncCmd) {
                     launcher.getSyncInfo();
