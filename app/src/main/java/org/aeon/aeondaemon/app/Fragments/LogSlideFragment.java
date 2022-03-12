@@ -53,9 +53,8 @@ public class LogSlideFragment extends Fragment {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                // TODO Add autoscroll to bottom of logs- the below commented out code works, but it cycles between top and bottom
                 ScrollView s = (ScrollView) rootView.findViewById(R.id.logs_scrollview);
-//                s.fullScroll(ScrollView.FOCUS_DOWN);
+
                 boolean hasFocus = MainActivity.getmViewPager().getCurrentItem() == MainActivity.FRAGMENT_LOG;
                 if (hasFocus) {
                     Launcher launcher = SynchronizeThread.getLauncher();
@@ -76,7 +75,6 @@ public class LogSlideFragment extends Fragment {
                         Selection.setSelection(spannable, spannable.length());
                         v.setText(spannable, TextView.BufferType.SPANNABLE);
                         s.fullScroll(ScrollView.FOCUS_DOWN);
-
                     }
                 }
                 handler.postDelayed(this, RefreshInterval);
