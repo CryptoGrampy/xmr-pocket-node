@@ -37,6 +37,17 @@ public class SynchronizeThread implements Runnable  {
     @Override
     public void run() {
         while (true) {
+            /**
+             * TODO: Review the logic here- this is where all the magic happens.
+             *
+             * - We always want to keep track of UI preference changes
+             * - If we enable the node from the UI, we want to start
+             * - If we disable the node from the UI, we want to stop
+             *
+             * - If the node stops, we want to update the UI to reflect that there are no
+             * peers/connections, that it's not syncing, etc. rather than display the last known vals
+             *
+             */
             boolean nodeEnabled = CollectPreferences.collectedPreferences.getIsEnableNode();
 
             if (launcher == null) {
