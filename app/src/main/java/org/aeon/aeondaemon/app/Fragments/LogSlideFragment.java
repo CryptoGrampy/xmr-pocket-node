@@ -24,6 +24,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.text.Selection;
+import android.text.SpannableString;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +54,7 @@ public class LogSlideFragment extends Fragment {
             @Override
             public void run() {
                 // TODO Add autoscroll to bottom of logs- the below commented out code works, but it cycles between top and bottom
-//                ScrollView s = (ScrollView) rootView.findViewById(R.id.logs_scrollview);
+                ScrollView s = (ScrollView) rootView.findViewById(R.id.logs_scrollview);
 //                s.fullScroll(ScrollView.FOCUS_DOWN);
                 boolean hasFocus = MainActivity.getmViewPager().getCurrentItem() == MainActivity.FRAGMENT_LOG;
                 if (hasFocus) {
@@ -62,9 +64,19 @@ public class LogSlideFragment extends Fragment {
                         v.setText(getString(R.string.daemon_not_running));
                     } else {
                         launcher.updateStatus();
-                        TextView v = (TextView) rootView.findViewById(R.id.logs);
 
-                        v.setText(launcher.getLogs());
+                        /**
+                         * Autoscrolling text
+                         * https://stackoverflow.com/questions/3506696/auto-scrolling-textview-in-android-to-bring-text-into-view
+                         */
+                        TextView v = (TextView) rootView.findViewById(R.id.logs);
+                        v.setMovementMethod(new ScrollingMovementMethod());
+
+                        SpannableString spannable = new SpannableString(launcher.getLogs());
+                        Selection.setSelection(spannable, spannable.length());
+                        v.setText(spannable, TextView.BufferType.SPANNABLE);
+                        s.fullScroll(ScrollView.FOCUS_DOWN);
+
                     }
                 }
                 handler.postDelayed(this, RefreshInterval);
