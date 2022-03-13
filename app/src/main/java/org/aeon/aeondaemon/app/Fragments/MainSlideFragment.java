@@ -15,6 +15,8 @@
  */
 package org.aeon.aeondaemon.app.Fragments;
 
+import static java.lang.Integer.parseInt;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -35,6 +37,7 @@ import org.aeon.aeondaemon.app.R;
 import org.aeon.aeondaemon.app.model.CollectPreferences;
 import org.aeon.aeondaemon.app.model.Launcher;
 import org.aeon.aeondaemon.app.model.SynchronizeThread;
+import org.w3c.dom.Text;
 
 import java.io.File;
 
@@ -106,10 +109,15 @@ public class MainSlideFragment extends Fragment {
                 v.setText(context.getString(R.string.sync_starting));
             } else if (launcher.isAlive()) {
                 TextView v = (TextView) rootView.findViewById(R.id.heightValue);
-                v.setText(launcher.getHeight());
+                String height = launcher.getHeight();
+                v.setText(height);
 
                 v = (TextView) rootView.findViewById(R.id.heightTarget);
-                v.setText(launcher.getTarget());
+                String targetHeight = launcher.getTarget();
+                v.setText(targetHeight);
+
+                v = (TextView) rootView.findViewById(R.id.syncPercentage);
+                v.setText("Sync Progress: " + launcher.getSyncPercentage() + "%");
 
                 v = (TextView) rootView.findViewById(R.id.compiledMsgAeonVersion);
                 if (launcher.getVersion() != null) v.setText(launcher.getVersion());

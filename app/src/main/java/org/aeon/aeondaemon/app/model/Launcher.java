@@ -42,6 +42,7 @@ public class Launcher {
     private StringBuffer logs=null;
     private String height;
     private String target;
+    private String syncPercentage;
     private String peers;
     private String downloading;
     private Process process=null;
@@ -109,7 +110,7 @@ public class Launcher {
                 if (logs.length() > MAX_LOG_SIZE)
                     logs.delete(0,logs.length() - MAX_LOG_SIZE);
 
-                // Try to get wownerod version and build number
+                // Try to get monerod version and build number
                 if (version == null) {
                     int i = 0; //logs.toString().indexOf("I Wownero");
                     //if (i != -1) {
@@ -119,6 +120,18 @@ public class Launcher {
                             version =  logs.toString().substring(i+j,i+j+k+1);
                         }
                     //}
+                }
+
+                // Get Sync Percentage
+                int s = logs.toString().lastIndexOf("%,");
+                if (s > 0) {
+                    String syncReversed = "";
+                    s--;
+                    while (logs.charAt(s) != '(') {
+                        syncReversed += logs.charAt(s);
+                        s--;
+                    }
+                    syncPercentage = new StringBuilder(syncReversed).reverse().toString();
                 }
 
                 // Update Height and target
@@ -247,6 +260,7 @@ public class Launcher {
         return target;
     }
 
+    public String getSyncPercentage() { return syncPercentage; }
 
     public String getVersion() {
         return version;
