@@ -17,9 +17,11 @@ package org.aeon.aeondaemon.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -41,7 +43,6 @@ public class ThemeActivity extends AppCompatPreferenceActivity {
         setContentView(R.layout.activity_theme);
         MainActivity.setThemeActivity(this);
         setTheme(MainActivity.getStyle(context));
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, MainActivity.getToolbarBg(context)));
     }
 
     @Override
@@ -63,8 +64,6 @@ public class ThemeActivity extends AppCompatPreferenceActivity {
     @Override
     public void onResume(){
         super.onResume();
-
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, MainActivity.getToolbarBg(context)));
         setTheme(MainActivity.getStyle(context));
     }
 

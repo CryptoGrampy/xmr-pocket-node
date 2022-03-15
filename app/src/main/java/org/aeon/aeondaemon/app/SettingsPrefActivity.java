@@ -141,9 +141,10 @@ public class SettingsPrefActivity extends AppCompatPreferenceActivity {
             editor.putBoolean("use_sd_card",false);
             editor.commit();
         }
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, MainActivity.getToolbarBg(context)));
-        setTheme(MainActivity.getStyle(getApplicationContext()));
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+       setTheme(MainActivity.getStyle(getApplicationContext()));
+
+       // TODO: check this
+       getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
     }
 
     public static class MainPreferenceFragment extends PreferenceFragment {
@@ -166,8 +167,7 @@ public class SettingsPrefActivity extends AppCompatPreferenceActivity {
     public void onResume(){
         super.onResume();
 
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.wsolidcolor));
-        setTheme(R.style.PreferencesThemeWownero1);
+        setTheme(R.style.AppTheme);
     }
 
 }
