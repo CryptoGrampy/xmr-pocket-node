@@ -127,7 +127,9 @@ public class MainSlideFragment extends Fragment {
                 }
 
                 v = (TextView) rootView.findViewById(R.id.syncPercentage);
-                v.setText("Sync Progress: " + launcher.getSyncPercentage() + "%");
+                if (launcher.getSyncPercentage() != null) {
+                    v.setText("Sync Progress: " + launcher.getSyncPercentage() + "%");
+                }
 
                 v = (TextView) rootView.findViewById(R.id.compiledMsgAeonVersion);
                 if (launcher.getVersion() != null) v.setText(launcher.getVersion());

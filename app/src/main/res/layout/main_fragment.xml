@@ -40,11 +40,28 @@
 
 
     <TextView
+        android:id="@+id/syncPercentage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:text="Sync Percentage"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/heightValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif"
         android:gravity="start"
@@ -61,7 +78,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif"
         android:gravity="start"
@@ -74,21 +91,60 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/syncPercentage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/compiledMsgAeonVersion"
+        android:layout_width="350dp"
+        android:layout_height="23dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginBottom="496dp"
         android:gravity="start"
-        android:text="Sync Percentage"
+        android:text="Monero Version"
         android:textSize="14sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/peers"
+        android:layout_width="250dp"
+        android:layout_height="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="540dp"
+        android:gravity="start"
+        android:text="Peers Connected"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/disk"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="520dp"
+        android:gravity="start"
+        android:text="Free Space"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/downloading"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="560dp"
+        android:gravity="start"
+        android:text="Download Rate"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/sync_status"
@@ -106,61 +162,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/peers"
-        android:layout_width="250dp"
-        android:layout_height="21dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="556dp"
-        android:gravity="start"
-        android:text="Peers Connected"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/downloading"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="576dp"
-        android:gravity="start"
-        android:text="Download Rate"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/disk"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="536dp"
-        android:gravity="start"
-        android:text="Free Space"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/compiledMsgAeonVersion"
-        android:layout_width="350dp"
-        android:layout_height="23dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="512dp"
-        android:gravity="start"
-        android:text="Monero Version"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
