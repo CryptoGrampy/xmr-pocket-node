@@ -169,8 +169,6 @@ public class CollectPreferences {
             // No external storage available
             return null;
         }
-
-
     }
 
     public static String getCustomPath() {

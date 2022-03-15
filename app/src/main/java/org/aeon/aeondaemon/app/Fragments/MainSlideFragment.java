@@ -53,6 +53,7 @@ public class MainSlideFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = (ViewGroup) inflater.inflate(R.layout.main_fragment, container, false);
         context = getActivity();
+        setDisconnectedValues();
 
         final Handler handler = new Handler();
 
@@ -66,7 +67,7 @@ public class MainSlideFragment extends Fragment {
         handler.postDelayed(r,RefreshInterval);
 
         TextView v = (TextView) rootView.findViewById(R.id.sync_status);
-        v.setText(getActivity().getString(R.string.sync_starting));
+        v.setText(getActivity().getString(R.string.daemon_not_running));
 
         return rootView;
     }
@@ -100,7 +101,13 @@ public class MainSlideFragment extends Fragment {
             }
 
             Launcher launcher = SynchronizeThread.getLauncher();
-            if (launcher == null) return;
+
+            System.out.println("updating");
+
+            if (launcher == null) {
+                TextView v = (TextView) rootView.findViewById(R.id.sync_status);
+                v.setText(R.string.daemon_not_running);
+            };
 
             if (launcher.isStarting()) {
                 TextView v = (TextView) rootView.findViewById(R.id.sync_status);
@@ -108,11 +115,16 @@ public class MainSlideFragment extends Fragment {
             } else if (launcher.isAlive()) {
                 TextView v = (TextView) rootView.findViewById(R.id.heightValue);
                 String height = launcher.getHeight();
-                v.setText(height);
+                if (height != null) {
+                    v.setText("Height: " + height);
+                }
 
                 v = (TextView) rootView.findViewById(R.id.heightTarget);
                 String targetHeight = launcher.getTarget();
-                v.setText(targetHeight);
+
+                if (targetHeight != null) {
+                    v.setText("Target Height: " + targetHeight);
+                }
 
                 v = (TextView) rootView.findViewById(R.id.syncPercentage);
                 v.setText("Sync Progress: " + launcher.getSyncPercentage() + "%");
@@ -133,9 +145,39 @@ public class MainSlideFragment extends Fragment {
                 v.setText(s + " " + context.getString(R.string.disk_used));
 
                 v = (TextView) rootView.findViewById(R.id.sync_status);
-                v.setText("");
+                v.setText(R.string.daemon_running);
+            } else {
+                // Unset all Main page values by default
+                setDisconnectedValues();
             }
         }
+    }
+
+    private void setDisconnectedValues() {
+        TextView v = (TextView) rootView.findViewById(R.id.heightValue);
+        v.setText("");
+
+        v = (TextView) rootView.findViewById(R.id.heightTarget);
+        v.setText("");
+
+        v = (TextView) rootView.findViewById(R.id.syncPercentage);
+        v.setText("");
+
+        v = (TextView) rootView.findViewById(R.id.compiledMsgAeonVersion);
+        v.setText("");
+
+        v = (TextView) rootView.findViewById(R.id.peers);
+        v.setText("");
+
+        v = (TextView) rootView.findViewById(R.id.downloading);
+        v.setText("");
+
+        v = (TextView) rootView.findViewById(R.id.disk);
+        String s = String.format("%.1f", getUsedSpace());
+        v.setText(s + " " + context.getString(R.string.disk_used));
+
+        v = (TextView) rootView.findViewById(R.id.sync_status);
+        v.setText(R.string.daemon_not_running);
     }
 
     /**

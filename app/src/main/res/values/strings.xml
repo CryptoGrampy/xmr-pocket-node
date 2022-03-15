@@ -14,8 +14,8 @@
     <string name="action_about">About</string>
 
     <string name="pref_about">About</string>
-    <string name="height">Block</string>
-    <string name="target">Latest block</string>
+    <string name="height">Block Height</string>
+    <string name="target">Latest Block</string>
 
     <string name="testnet">Testnet</string>
     <string name="summary_testnet">Run on testnet.</string>
@@ -117,8 +117,10 @@
     <string name="fastblock_sync">Fast bloc sync</string>
     <string name="summary_fastblock_sync">Sync up most of the way by using embedded, known block hashes.</string>
     <string name="disk_used">GB free</string>
-    <string name="daemon_not_running">The daemon is not running.</string>
-    <string name="sync_starting">Synchronization starting</string>
+    <string name="daemon_not_running">🔴 Disconnected</string>
+    <string name="daemon_running" translatable="false">🟢 Connected</string>
+    <string name="sync_starting">Synchronization Starting</string>
+
     <string name="sd_custom_error">Invalid settings</string>
     <string name="sd_custom_error_msg">Custom and SD storage can\'t be set at the same time</string>
 
