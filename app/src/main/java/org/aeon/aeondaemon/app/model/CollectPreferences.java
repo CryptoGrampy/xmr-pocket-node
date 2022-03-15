@@ -15,11 +15,18 @@
  */
 package org.aeon.aeondaemon.app.model;
 
+import static android.os.Environment.getExternalStoragePublicDirectory;
+
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.Map;
 
 public class CollectPreferences {
@@ -27,100 +34,100 @@ public class CollectPreferences {
     private static final String TAG = CollectPreferences.class.getSimpleName();
 
     public static void collect(SharedPreferences prefs) {
-        Map<String,?> keys = prefs.getAll();
-        for(Map.Entry<String,?> entry : keys.entrySet()){
+        Map<String, ?> keys = prefs.getAll();
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
             if (entry.getKey().equals("Testnet")) {
-                Boolean t = prefs.getBoolean("Testnet",false);
+                Boolean t = prefs.getBoolean("Testnet", false);
                 collectedPreferences.setIsTestnet(t.booleanValue());
             }
             if (entry.getKey().equals("Stagenet")) {
-                Boolean t = prefs.getBoolean("Stagenet",false);
+                Boolean t = prefs.getBoolean("Stagenet", false);
                 collectedPreferences.setIsStageNet(t.booleanValue());
             }
             if (entry.getKey().equals("p2pBindPort")) {
-                String t = prefs.getString("p2pBindPort","");
-                if (! t.equals("")) collectedPreferences.setP2pBindPort(Integer.parseInt(t));
+                String t = prefs.getString("p2pBindPort", "");
+                if (!t.equals("")) collectedPreferences.setP2pBindPort(Integer.parseInt(t));
                 else collectedPreferences.setP2pBindPort(0);
             }
             if (entry.getKey().equals("rpcBindPort")) {
-                String t = prefs.getString("rpcBindPort","");
-                if (! t.equals("")) collectedPreferences.setRpcBindPort(Integer.parseInt(t));
+                String t = prefs.getString("rpcBindPort", "");
+                if (!t.equals("")) collectedPreferences.setRpcBindPort(Integer.parseInt(t));
                 else collectedPreferences.setRpcBindPort(0);
             }
             if (entry.getKey().equals("zmqBindPort")) {
-                String t = prefs.getString("zmqBindPort","");
-                if (! t.equals("")) collectedPreferences.setZmqRpcPort(Integer.parseInt(t));
+                String t = prefs.getString("zmqBindPort", "");
+                if (!t.equals("")) collectedPreferences.setZmqRpcPort(Integer.parseInt(t));
                 else collectedPreferences.setZmqRpcPort(0);
             }
             if (entry.getKey().equals("blockSyncSize")) {
-                String t = prefs.getString("blockSyncSize","");
-                if (! t.equals("")) collectedPreferences.setBlockSyncSize(Integer.parseInt(t));
+                String t = prefs.getString("blockSyncSize", "");
+                if (!t.equals("")) collectedPreferences.setBlockSyncSize(Integer.parseInt(t));
                 else collectedPreferences.setBlockSyncSize(0);
             }
             if (entry.getKey().equals("limitRate")) {
-                String t = prefs.getString("limitRate","");
-                if (! t.equals("")) collectedPreferences.setLimitRate(Integer.parseInt(t));
+                String t = prefs.getString("limitRate", "");
+                if (!t.equals("")) collectedPreferences.setLimitRate(Integer.parseInt(t));
                 else collectedPreferences.setLimitRate(-1);
             }
             if (entry.getKey().equals("limitRateDown")) {
-                String t = prefs.getString("limitRateDown","");
-                if (! t.equals("")) collectedPreferences.setLimitRateDown(Integer.parseInt(t));
+                String t = prefs.getString("limitRateDown", "");
+                if (!t.equals("")) collectedPreferences.setLimitRateDown(Integer.parseInt(t));
                 else collectedPreferences.setLimitRateDown(-1);
             }
             if (entry.getKey().equals("limitRateUp")) {
-                String t = prefs.getString("limitRateUp","");
-                if (! t.equals("")) collectedPreferences.setLimitRateUp(Integer.parseInt(t));
+                String t = prefs.getString("limitRateUp", "");
+                if (!t.equals("")) collectedPreferences.setLimitRateUp(Integer.parseInt(t));
                 else collectedPreferences.setLimitRateUp(-1);
             }
             if (entry.getKey().equals("outPeers")) {
-                String t = prefs.getString("outPeers","");
-                if (! t.equals("")) collectedPreferences.setOutPeers(Integer.parseInt(t));
+                String t = prefs.getString("outPeers", "");
+                if (!t.equals("")) collectedPreferences.setOutPeers(Integer.parseInt(t));
                 else collectedPreferences.setOutPeers(-1);
             }
             if (entry.getKey().equals("inPeers")) {
-                String t = prefs.getString("inPeers","");
-                if (! t.equals("")) collectedPreferences.setInPeers(Integer.parseInt(t));
+                String t = prefs.getString("inPeers", "");
+                if (!t.equals("")) collectedPreferences.setInPeers(Integer.parseInt(t));
                 else collectedPreferences.setInPeers(-1);
             }
             if (entry.getKey().equals("peerNode")) {
-                String t = prefs.getString("peerNode","");
-                if (! t.equals("")) collectedPreferences.setPeerNode(t);
+                String t = prefs.getString("peerNode", "");
+                if (!t.equals("")) collectedPreferences.setPeerNode(t);
                 else collectedPreferences.setPeerNode(null);
             }
             if (entry.getKey().equals("exclusiveNode")) {
-                String t = prefs.getString("exclusiveNode","");
-                if (! t.equals("")) collectedPreferences.setAddExclusiveNode(t);
+                String t = prefs.getString("exclusiveNode", "");
+                if (!t.equals("")) collectedPreferences.setAddExclusiveNode(t);
                 else collectedPreferences.setAddExclusiveNode(null);
             }
             if (entry.getKey().equals("priorityNode")) {
-                String t = prefs.getString("priorityNode","");
-                if (! t.equals("")) collectedPreferences.setAddPriorityNode(t);
+                String t = prefs.getString("priorityNode", "");
+                if (!t.equals("")) collectedPreferences.setAddPriorityNode(t);
                 else collectedPreferences.setAddPriorityNode(null);
             }
             if (entry.getKey().equals("restricted_rpc")) {
-                Boolean t = prefs.getBoolean("restricted_rpc",true);
+                Boolean t = prefs.getBoolean("restricted_rpc", true);
                 collectedPreferences.setRestrictedRpc(t.booleanValue());
             }
             if (entry.getKey().equals("use_sd_card")) {
-                Boolean t = prefs.getBoolean("use_sd_card",false);
+                Boolean t = prefs.getBoolean("use_sd_card", false);
                 collectedPreferences.setUseSDCard(t.booleanValue());
             }
             if (entry.getKey().equals("sd_storage")) {
-                String t = prefs.getString("sd_storage","");
-                if (! t.equals("")) collectedPreferences.setSdCardPath(t);
+                String t = prefs.getString("sd_storage", "");
+                if (!t.equals("")) collectedPreferences.setSdCardPath(t);
                 else collectedPreferences.setSdCardPath(null);
             }
             if (entry.getKey().equals("use_custom_storage")) {
-                Boolean t = prefs.getBoolean("use_custom_storage",false);
+                Boolean t = prefs.getBoolean("use_custom_storage", false);
                 collectedPreferences.setUseCustomStorage(t.booleanValue());
             }
             if (entry.getKey().equals("sd_custom_storage")) {
-                String t = prefs.getString("sd_custom_storage","");
-                if (! t.equals("")) collectedPreferences.setCustomStoragePath(t);
+                String t = prefs.getString("sd_custom_storage", "");
+                if (!t.equals("")) collectedPreferences.setCustomStoragePath(t);
                 else collectedPreferences.setCustomStoragePath(null);
             }
             if (entry.getKey().equals("loglevel")) {
-                Integer t = Integer.parseInt(prefs.getString("loglevel","0"));
+                Integer t = Integer.parseInt(prefs.getString("loglevel", "0"));
                 collectedPreferences.setLogLevel(t.intValue());
             }
             if (entry.getKey().equals("enable_node")) {
@@ -128,32 +135,46 @@ public class CollectPreferences {
                 collectedPreferences.setEnableNode(t.booleanValue());
             }
             if (entry.getKey().equals("fast_bloc_sync")) {
-                Boolean t = prefs.getBoolean("fast_bloc_sync",false);
+                Boolean t = prefs.getBoolean("fast_bloc_sync", false);
                 collectedPreferences.setFastBlocSync(t.booleanValue());
             }
             if (entry.getKey().equals("pruning")) {
-                Boolean t = prefs.getBoolean("pruning",true);
+                Boolean t = prefs.getBoolean("pruning", true);
                 collectedPreferences.setUsePruning(t.booleanValue());
             }
 
         }
     }
 
-    public static String getExternalStoragePath() {
-        String externalStoragePath = System.getenv("SECONDARY_STORAGE");
-        if (externalStoragePath == null) return null;
+    public static String getExternalStoragePath(Context context) {
+        File[] externalStorageVolumes = ContextCompat.getExternalFilesDirs(context, null);
 
-        boolean hasExternalStorage = false;
-        File file = new File(externalStoragePath);
-        if (file.exists()) hasExternalStorage = file.getUsableSpace() > 0;
-        //Log.d(TAG,"External storage: "+hasExternalStorage);
+        System.out.println("zero" + externalStorageVolumes[0]);
 
-        if (!hasExternalStorage) return null;
-        else return externalStoragePath+ "/wownero";
+        /**
+         * FIXME: Hacky solution here, but it's the best one I've found so far. If the string
+         * replacement is removed, it writes to a private directory on the SD card.
+         * I'd like to keep the directory publicly accessible in case
+         * wants to manually sideload their own data. For a fix, I'd prefer to use some kind of
+         * existing Android API (surely there's something better than this) that targets the Documents
+         * directory in the SDCard folder.
+         */
+        if (externalStorageVolumes.length > 0) {
+            // TODO: Add check for usable space
+            File primaryExternalStorage = externalStorageVolumes[1];
+            String appName = context.getApplicationInfo().packageName;
+
+            return (primaryExternalStorage + "").replace("/Android/data/" + appName + "/files", "/Documents/bitmonero");
+        } else {
+            // No external storage available
+            return null;
+        }
+
+
     }
 
     public static String getCustomPath() {
-        File file = new File(Environment.getExternalStorageDirectory(),"wownero");
+        File file = new File(Environment.getExternalStorageDirectory(), "wownero");
         if (!file.mkdirs()) {
             Log.e(TAG, "Directory not created");
         }
