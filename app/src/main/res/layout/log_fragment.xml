@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Waiting for logs....      "
-        android:textColor="#000000"
         android:textSize="10sp"
         android:scrollingCache="true"
         android:background="@null"

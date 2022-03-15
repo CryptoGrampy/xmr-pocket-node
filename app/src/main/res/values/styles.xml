@@ -3,11 +3,16 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColor">#000</item>
+
+        <item name="titleTextColor">@color/newColorPrimary</item>
+        <item name="colorPrimaryDark">#fff</item>
+        <item name="colorAccent">@color/newColorPrimary</item>
+        <item name="android:textColor">@color/mainTextColor</item>
         <item name="android:windowTranslucentStatus" >true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:background">@color/bodyBackground</item>
+        <item name="android:textColorSecondary">@color/mainTextColor</item>
+        <item name="android:alertDialogTheme">@style/StyledDialog</item>
     </style>
     <style name="PreferencesThemeWownero1">
         <item name="android:windowBackground">@drawable/wsolidcolor</item>
@@ -28,7 +33,7 @@
         <item name="android:textColorSecondary">#000</item>
         <item name="android:alertDialogTheme">@style/StyledDialog</item>
     </style>
-    <style name="PreferencesThemeWownero3">
+   <style name="PreferencesThemeWownero3">
         <item name="android:windowBackground">@drawable/wowario</item>
         <item name="colorAccent">#fc4</item>
         <item name="colorPrimaryDark">#fff</item>

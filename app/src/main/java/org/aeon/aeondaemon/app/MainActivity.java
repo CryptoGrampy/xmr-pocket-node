@@ -21,6 +21,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
@@ -71,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE);
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, getToolbarBg(context)));
-
         // Create the adapter that will return a fragment for each of the three primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -100,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.newColorPrimary)));
 
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, getToolbarBg(context)));
+
         setTheme(MainActivity.getStyle(context));
     }
 
@@ -112,11 +111,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             // launch settings activity
             startActivity(new Intent(MainActivity.this, SettingsPrefActivity.class));
-            return true;
-        }
-        if (id == R.id.action_theme) {
-            // launch settings activity
-            startActivity(new Intent(MainActivity.this, ThemeActivity.class));
             return true;
         }
         if (id == R.id.action_about) {
@@ -215,55 +209,15 @@ public class MainActivity extends AppCompatActivity {
     public static ViewPager getmViewPager() {
         return mViewPager;
     }
-
+    
     public static void setThemeActivity(AppCompatPreferenceActivity themeActivity) {
         MainActivity.themeActivity = themeActivity;
     }
 
     public static int getStyle(Context context) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = preferences.getString("theme", null);
-        if (theme == null)
-            return R.style.PreferencesThemeWownero4;
-        else if (theme.equals("PreferencesThemeWownero1"))
-            return R.style.PreferencesThemeWownero1;
-        else if (theme.equals("PreferencesThemeWownero2"))
-            return R.style.PreferencesThemeWownero2;
-        else if (theme.equals("PreferencesThemeWownero3"))
-            return R.style.PreferencesThemeWownero3;
-        else
-            return R.style.PreferencesThemeWownero4;
+        return R.style.AppTheme;
     }
 
-    public static int getToolbarBg(Context context) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = preferences.getString("theme", null);
-        if (theme == null)
-            return R.drawable.wsolidcolor;
-        else if (theme.equals("PreferencesThemeWownero1"))
-            return R.drawable.wsolidcolor;
-        else if (theme.equals("PreferencesThemeWownero2"))
-            return R.drawable.wsolidcolor;
-        else if (theme.equals("PreferencesThemeWownero3"))
-            return R.drawable.wsolidcolor;
-        else
-            return R.drawable.wsolidcolor;
-    }
-
-    public static int getBg(Context context) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = preferences.getString("theme", null);
-        if (theme == null)
-            return R.drawable.w001;
-        else if (theme.equals("PreferencesThemeWownero1"))
-            return R.drawable.wsolidcolor;
-        else if (theme.equals("PreferencesThemeWownero2"))
-            return R.drawable.wcoin;
-        else if (theme.equals("PreferencesThemeWownero3"))
-            return R.drawable.wowario;
-        else
-            return R.drawable.w001;
-    }
 
     public static Context getContext() {
         return context;

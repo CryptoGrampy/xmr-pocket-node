@@ -68,8 +68,6 @@ public class MainSlideFragment extends Fragment {
         TextView v = (TextView) rootView.findViewById(R.id.sync_status);
         v.setText(getActivity().getString(R.string.sync_starting));
 
-        rootView.setBackground(ContextCompat.getDrawable(context,MainActivity.getBg(context)));
-
         return rootView;
     }
 
@@ -153,8 +151,6 @@ public class MainSlideFragment extends Fragment {
     @Override
     public void onResume(){
         super.onResume();
-
-        rootView.setBackground(ContextCompat.getDrawable(context,MainActivity.getBg(context)));
     }
 
     @Override

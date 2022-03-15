@@ -20,6 +20,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -47,8 +48,6 @@ public class AboutActivity extends AppCompatPreferenceActivity {
         t = ((TextView)findViewById(R.id.xmr_msg_val));
         t.setOnClickListener(copyListener);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE);
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, MainActivity.getToolbarBg(context)));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -92,7 +91,6 @@ public class AboutActivity extends AppCompatPreferenceActivity {
     public void onResume(){
         super.onResume();
 
-        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(context, MainActivity.getToolbarBg(context)));
         setTheme(MainActivity.getStyle(context));
     }
 
