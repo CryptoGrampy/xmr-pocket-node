@@ -38,6 +38,8 @@ import org.aeon.aeondaemon.app.model.CollectPreferences;
 import org.aeon.aeondaemon.app.model.Launcher;
 import org.aeon.aeondaemon.app.model.SynchronizeThread;
 
+import java.io.File;
+
 public class SettingsPrefActivity extends AppCompatPreferenceActivity {
     private static final String TAG = SettingsPrefActivity.class.getSimpleName();
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
@@ -52,99 +54,100 @@ public class SettingsPrefActivity extends AppCompatPreferenceActivity {
         context = getApplicationContext();
         activity = this;
 
+
         // load settings fragment
         setContentView(R.layout.activity_settings);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
 
         listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-                    @Override
-                    public void onSharedPreferenceChanged(SharedPreferences prefs, String key)  {
-                        Launcher launcher = SynchronizeThread.getLauncher();
-                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                Launcher launcher = SynchronizeThread.getLauncher();
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-                        // If SD card enabled set a preference if empty
-                        String path = preferences.getString("sd_storage","");
-                        boolean useSD = preferences.getBoolean("use_sd_card",false);
-                        // Card has been inserted and "Use SD card" checked
-                        if (useSD && path.equals("")) {
-                            SharedPreferences.Editor editor = preferences.edit();
-                            if (CollectPreferences.getExternalStoragePath() != null)
-                                editor.putString("sd_storage",CollectPreferences.getExternalStoragePath());
-                            else
-                                editor.putBoolean("use_sd_card",false);
-                            editor.commit();
+                // If SD card enabled set a preference if empty
+                String path = preferences.getString("sd_storage", "");
+                boolean useSD = preferences.getBoolean("use_sd_card", false);
+                // Card has been inserted and "Use SD card" checked
+                if (useSD && path.equals("")) {
+                    SharedPreferences.Editor editor = preferences.edit();
+                    if (CollectPreferences.getExternalStoragePath(context) != null)
+                        editor.putString("sd_storage", CollectPreferences.getExternalStoragePath(context));
+                    else
+                        editor.putBoolean("use_sd_card", false);
+                    editor.commit();
 
-                            getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
 
-                        }
+                }
 
-                        // If custom location set a preference if empty
-                        path = preferences.getString("sd_custom_storage","");
-                        boolean useCustom = preferences.getBoolean("use_custom_storage",false);
-                        // Card has been inserted and "Use SD card" checked
-                        if (useCustom && path.equals("")) {
+                // If custom location set a preference if empty
+                path = preferences.getString("sd_custom_storage", "");
+                boolean useCustom = preferences.getBoolean("use_custom_storage", false);
+                // Card has been inserted and "Use SD card" checked
+                if (useCustom && path.equals("")) {
 
-                            SharedPreferences.Editor editor = preferences.edit();
-                            editor.putString("sd_custom_storage",CollectPreferences.getCustomPath());
-                            editor.commit();
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("sd_custom_storage", CollectPreferences.getCustomPath());
+                    editor.commit();
 
-                            getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
 
-                        }
+                }
 
-                        // Android 6+
-                        if (useCustom || useSD) {
-                            boolean hasPermission = (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
-                            if (!hasPermission) {
-                                ActivityCompat.requestPermissions(activity,
-                                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                                        1);
-                            }
-                        }
-
-                        if (useSD && useCustom) {
-                            AlertDialog.Builder builder;
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                builder = new AlertDialog.Builder(SettingsPrefActivity.this, android.R.style.Theme_Material_Dialog_Alert);
-                            } else {
-                                builder = new AlertDialog.Builder(SettingsPrefActivity.this);
-                            }
-                            builder.setTitle(R.string.sd_custom_error)
-                                    .setMessage(R.string.sd_custom_error_msg)
-                                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                        }
-                                    })
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
-
-                            SharedPreferences.Editor editor = preferences.edit();
-                            editor.putBoolean("use_custom_storage",false);
-                            editor.commit();
-
-                            getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
-                        }
-                        MainSlideFragment.setHasCriticalError(false);
-                        if (launcher != null) {
-                            Log.e(TAG, "Stop Wownero daemon");
-                            launcher.exit();
-                        }
+                // Android 6+
+                if (useCustom || useSD ) {
+                    boolean hasPermission = (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+                    if (!hasPermission) {
+                        ActivityCompat.requestPermissions(activity,
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                1);
                     }
-                };
+                }
+
+                if (useSD && useCustom) {
+                    AlertDialog.Builder builder;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        builder = new AlertDialog.Builder(SettingsPrefActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                    } else {
+                        builder = new AlertDialog.Builder(SettingsPrefActivity.this);
+                    }
+                    builder.setTitle(R.string.sd_custom_error)
+                            .setMessage(R.string.sd_custom_error_msg)
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("use_custom_storage", false);
+                    editor.commit();
+
+                    getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
+                }
+                MainSlideFragment.setHasCriticalError(false);
+                if (launcher != null) {
+                    Log.e(TAG, "Stop Wownero daemon");
+                    launcher.exit();
+                }
+            }
+        };
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         preferences.registerOnSharedPreferenceChangeListener(listener);
 
-        String sdLocation = CollectPreferences.getExternalStoragePath();
+        String sdLocation = CollectPreferences.getExternalStoragePath(context);
         // if the SD card has been removed.
         if (sdLocation == null) {
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("use_sd_card",false);
+            editor.putBoolean("use_sd_card", false);
             editor.commit();
         }
-       setTheme(MainActivity.getStyle(getApplicationContext()));
+        setTheme(MainActivity.getStyle(getApplicationContext()));
 
-       // TODO: check this
-       getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        // TODO: Remove/check this
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
     }
 
     public static class MainPreferenceFragment extends PreferenceFragment {
@@ -164,7 +167,7 @@ public class SettingsPrefActivity extends AppCompatPreferenceActivity {
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         setTheme(R.style.AppTheme);
