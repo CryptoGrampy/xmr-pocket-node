@@ -21,11 +21,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.format.Formatter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -146,6 +148,11 @@ public class MainSlideFragment extends Fragment {
 
                 v = (TextView) rootView.findViewById(R.id.sync_status);
                 v.setText(R.string.daemon_running);
+
+                v = (TextView) rootView.findViewById(R.id.local_ip_address);
+                int port = CollectPreferences.collectedPreferences.getRpcBindPort();
+                v.setText("Node Address: "+getLocalIpAddress()+(port > 0 ? (":"+port) : ":18081"));
+
             } else {
                 // Unset all Main page values by default
                 setDisconnectedValues();
@@ -178,6 +185,15 @@ public class MainSlideFragment extends Fragment {
 
         v = (TextView) rootView.findViewById(R.id.sync_status);
         v.setText(R.string.daemon_not_running);
+
+        v = (TextView) rootView.findViewById(R.id.local_ip_address);
+        v.setText("");
+    }
+
+    private String getLocalIpAddress() {
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        String ipAddress = Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress());
+        return ipAddress;
     }
 
     /**
