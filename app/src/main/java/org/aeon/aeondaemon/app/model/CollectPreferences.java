@@ -157,8 +157,9 @@ public class CollectPreferences {
          * existing Android API (surely there's something better than this) that targets the Documents
          * directory in the SDCard folder.
          */
-        if (externalStorageVolumes.length > 0) {
+        if (externalStorageVolumes.length > 1) {
             // TODO: Add check for usable space
+
             File primaryExternalStorage = externalStorageVolumes[1];
             String appName = context.getApplicationInfo().packageName;
 
