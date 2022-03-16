@@ -149,8 +149,6 @@ public class CollectPreferences {
     public static String getExternalStoragePath(Context context) {
         File[] externalStorageVolumes = ContextCompat.getExternalFilesDirs(context, null);
 
-        System.out.println("zero" + externalStorageVolumes[0]);
-
         /**
          * FIXME: Hacky solution here, but it's the best one I've found so far. If the string
          * replacement is removed, it writes to a private directory on the SD card.

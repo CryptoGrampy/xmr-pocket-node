@@ -101,9 +101,7 @@ public class MainSlideFragment extends Fragment {
             }
 
             Launcher launcher = SynchronizeThread.getLauncher();
-
-            System.out.println("updating");
-
+            
             if (launcher == null) {
                 TextView v = (TextView) rootView.findViewById(R.id.sync_status);
                 v.setText(R.string.daemon_not_running);
