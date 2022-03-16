@@ -6,8 +6,8 @@ android {
         applicationId "org.cryptogrampy.pocketnode.app"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 1
-        versionName "0.1.0-alpha"
+        versionCode 2
+        versionName "0.1.1-alpha"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
