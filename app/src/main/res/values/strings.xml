@@ -69,7 +69,7 @@
     <string name="summary_priorityNode">Specify a peer to connect (ip:port)</string>
     <string name="title_priorityNode">Priority node</string>
 
-    <string name="summary_about">This app is designed to run an Wownero node locally on your phone. Connect your wallet to the localhost to use this node.</string>
+    <string name="summary_about">This app is designed to run a Monero node locally on your Android device. Connect your wallet to the Node Address on the Main screen to use this node.  Please file Bugs/Issues/Feature requests on the <a href="https://github.com/CryptoGrampy/xmr-pocket-node/issues">xmr-pocket-node code repo</a></string>
     <string name="app_version">1.1</string>
     <string name="daemon_version">N/A</string>
     <string name="title_daemon_version">Wownero daemon version</string>
@@ -80,12 +80,12 @@
     <string name="log_content">Log content.......</string>
     <string name="donation">Donations</string>
     <string name="donation_aeon">WOW donation</string>
-    <string name="donation_xmr">XMR donation</string>
+    <string name="donation_xmr">xmr donation</string>
     <string name="donation_aeon_msg" translatable="false">Wownero</string>
     <string name="donation_aeon_addr" translatable="false">Wo3tBXLr9Sq7cyqHiwoYTTGc4EfPidFFUN6rPv4RdrWc1boYemdNsRyFbpq1nnDAbRYTb8QArzF86Be1AuiabmqA37mTGhw1u</string>
-    <string name="donation_xmr_msg" translatable="false">XMR</string>
+    <string name="donation_xmr_msg" translatable="false">Support 85-Year-Old Developers. Buy Grampy a Coffee:</string>
     <string name="donation_xmr_addr" translatable="false">8BudmXKZwpXhfVGCtgFPyKWgLcDLYJ5jRT95xCp4JMFWapgTLrun41AG6LPbef7WFA8T531QGnZT51cDF6uF9HECDhibEVw</string>
-    <string name="apropos">About this app</string>
+    <string name="apropos">about this app</string>
 
     <string name="title_version" translatable="false">Version</string>
     <string name="peers_connected">peers connected</string>

@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -47,6 +48,9 @@ public class AboutActivity extends AppCompatPreferenceActivity {
 
         t = ((TextView)findViewById(R.id.xmr_msg_val));
         t.setOnClickListener(copyListener);
+
+        t = ((TextView)findViewById(R.id.about_msg));
+        t.setMovementMethod(LinkMovementMethod.getInstance());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);

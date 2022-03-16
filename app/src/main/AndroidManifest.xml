@@ -22,7 +22,6 @@
         </activity>
         <activity android:name=".SettingsPrefActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".ThemeActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
