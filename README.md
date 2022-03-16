@@ -1,4 +1,4 @@
-# Monero PocketNode - A Monero node for your Android phone.
+# Monero PocketNode - A Monero node for your Android Device.
 
 WORK IN PROGRESS.  USE AT YOUR OWN RISK.  PR'S WELCOME!  RECOMMEND USING ON AN OLD PHONE- NOT YOUR DAILY DRIVER.  I DON'T KNOW HOW TO WRITE ANDROID APPS.
 
