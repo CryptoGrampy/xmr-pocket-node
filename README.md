@@ -22,3 +22,6 @@ The device will likely stop syncing after going to sleep, so you may want to dow
 
 Video Guide to starting up the node: https://twitter.com/CryptoGrampy/status/1503859218054529029?s=20
 
+## Donate
+
+If you want to buy coffee for an 85 year old: 8BudmXKZwpXhfVGCtgFPyKWgLcDLYJ5jRT95xCp4JMFWapgTLrun41AG6LPbef7WFA8T531QGnZT51cDF6uF9HECDhibEVw
