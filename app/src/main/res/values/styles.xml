@@ -59,4 +59,11 @@
         <item name="android:colorBackground">#ffffff</item>
         <item name="android:background">#fff</item>
     </style>
+
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/success</item>
+        <!-- Inactive track color(30% transparency) -->
+        <item name="android:colorForeground">#fff</item>
+    </style>
+
 </resources>

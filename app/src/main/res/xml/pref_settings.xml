@@ -35,12 +35,6 @@
     <PreferenceCategory android:title="@string/network_setttings">
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="enable_node"
-            android:summary="@string/summary_enable_node"
-            android:title="@string/enable_node" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
             android:key="Testnet"
             android:summary="@string/summary_testnet"
             android:title="@string/title_testnet" />
