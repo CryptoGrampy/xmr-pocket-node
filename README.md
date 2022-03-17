@@ -2,7 +2,13 @@
 
 WORK IN PROGRESS.  USE AT YOUR OWN RISK.  PR'S WELCOME!  RECOMMEND USING ON AN OLD PHONE- NOT YOUR DAILY DRIVER.  I DON'T KNOW HOW TO WRITE ANDROID APPS.
 
-## Phone requirements
+This app is meant first and foremost for people with Android phones that have SD slots that are laying in a drawer that can be repurposed into a constantly-plugged-in node. I don't recommend using this on internal storage... You're taking the internal SSD life into your own hands if you use this feature.
+
+Important things that probably don't work:
+
+1. Syncing with the screen off with the phone UNPLUGGED (it SHOULD continue syncing when plugged in).  You can download an app called 'Coffee' if you need to have the phone continue syncing while not plugged in.  
+
+## Device requirements
 A 64 bit processor with 2 Gb of storage is recommended to run on the mainnet blockchain.
 
 ## Install 
@@ -13,14 +19,11 @@ OR
 
 (If you trust that I haven't added nefarious binaries) Download the .apk from the latest release, and start up the app. 
 
-1. Open settings menu
-2. Optional- Check 'Use SD Card' if you have one available on your device (HIGHLY RECOMMENDED)
-3. Check 'Start Node' to turn on the node
-4. DONE
+## Run it
 
-The device will likely stop syncing after going to sleep, so you may want to download an app that keeps your screen enabled: Coffee is working well for me: https://f-droid.org/en/packages/com.github.muellerma.coffee/
+To Start the node- hit the toggle on the Main screen.  Check out the settings menu for more fine-grained control over your Node.  That's it!
 
-Video Guide to starting up the node: https://twitter.com/CryptoGrampy/status/1503859218054529029?s=20
+You can also expose your new node as a Tor hidden service by downloading Orbot from FDroid, and going through their create hidden service feature in the top right corner.  Point the hidden service service at port 18081 (this is your node's RPC port), and you can expose whatever port you want- 80, 18081, etc.  
 
 ## Donate
 
