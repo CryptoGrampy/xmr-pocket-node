@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private SynchronizeThread synchronizeThread = null;
     private static Context context = null;
+    private PowerManager.WakeLock wakelock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +81,17 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        // Create the background synchrpnioation thread
+        // Create the background synchronization thread
         if (synchronizeThread == null) {
             synchronizeThread = new SynchronizeThread(context);
             Thread t = new Thread(synchronizeThread);
             t.start();
         }
+
+        // Acquire wakelock
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wakelock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "pocketnode:wakelock");
+        wakelock.acquire();
 
         initDone = true;
     }
@@ -222,4 +229,12 @@ public class MainActivity extends AppCompatActivity {
     public static Context getContext() {
         return context;
     }
+
+    @Override
+    protected void onDestroy() {
+        // Clear wakelock
+        wakelock.release();
+        super.onDestroy();
+    }
+
 }
