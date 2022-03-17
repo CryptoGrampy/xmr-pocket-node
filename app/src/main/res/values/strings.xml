@@ -117,7 +117,7 @@
     <string name="fastblock_sync">Fast bloc sync</string>
     <string name="summary_fastblock_sync">Sync up most of the way by using embedded, known block hashes.</string>
     <string name="disk_used">GB free</string>
-    <string name="daemon_not_running">🔴 Disconnected</string>
+    <string name="daemon_not_running">🔴 disconnected</string>
     <string name="daemon_running" translatable="false">🟢 Connected</string>
     <string name="sync_starting">Synchronization Starting</string>
 

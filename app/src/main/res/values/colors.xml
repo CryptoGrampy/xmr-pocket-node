@@ -10,4 +10,7 @@
     <color name="navBackground">#222222</color>
     <color name="bodyBackground">#0F0F0F</color>
     <color name="mainTextColor">#FFF</color>
+    <color name="success">#76ff03</color>
+    <color name="info">#2196F3</color>
+    <color name="subtext">#808080</color>
 </resources>

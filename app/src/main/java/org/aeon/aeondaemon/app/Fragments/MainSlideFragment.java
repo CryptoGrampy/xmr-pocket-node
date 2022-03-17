@@ -15,18 +15,22 @@
  */
 package org.aeon.aeondaemon.app.Fragments;
 
+import static org.aeon.aeondaemon.app.model.CollectPreferences.collectedPreferences;
 import static java.lang.Integer.parseInt;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.SwitchCompat;
 import android.text.format.Formatter;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +43,6 @@ import org.aeon.aeondaemon.app.R;
 import org.aeon.aeondaemon.app.model.CollectPreferences;
 import org.aeon.aeondaemon.app.model.Launcher;
 import org.aeon.aeondaemon.app.model.SynchronizeThread;
-import org.w3c.dom.Text;
 
 import java.io.File;
 
@@ -50,6 +53,9 @@ public class MainSlideFragment extends Fragment {
     private ViewGroup rootView;
     private Context context = null;
     private static boolean hasCriticalError = false;
+    private static SharedPreferences sharedPreferences;
+    private static SwitchCompat nodeSwitch;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,7 +77,40 @@ public class MainSlideFragment extends Fragment {
         TextView v = (TextView) rootView.findViewById(R.id.sync_status);
         v.setText(getActivity().getString(R.string.daemon_not_running));
 
+        /**
+         * On init, set switch to saved setting or use default
+         *
+         * on update, check node setting, update node status, update saved setting
+         *
+         */
+        nodeSwitch = (SwitchCompat) rootView.findViewById(R.id.enable_node);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        initEnableNode();
+
         return rootView;
+    }
+
+    /**
+     * Sets the enable_node Switch with the last saved state of the button
+     * defaults to false
+     * and actually enables the node if previous state was true
+     */
+    private void initEnableNode() {
+        Boolean t = sharedPreferences.getBoolean("enable_node", false);
+        SwitchCompat nodeSwitch = (SwitchCompat) rootView.findViewById(R.id.enable_node);
+        nodeSwitch.setChecked(t.booleanValue());
+        collectedPreferences.setEnableNode(t.booleanValue());
+    }
+
+    /**
+     * Saves the toggle state of the button to be loaded on app restart
+     * and actually turns on the node
+     */
+    private void updateEnableNode() {
+        collectedPreferences.setEnableNode(nodeSwitch.isChecked());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("enable_node", nodeSwitch.isChecked());
+        editor.commit();
     }
 
     private void doUpdate() {
@@ -101,6 +140,9 @@ public class MainSlideFragment extends Fragment {
                 execError = null;
                 hasCriticalError = true;
             }
+
+            updateEnableNode();
+
 
             Launcher launcher = SynchronizeThread.getLauncher();
             
@@ -150,7 +192,7 @@ public class MainSlideFragment extends Fragment {
                 v.setText(R.string.daemon_running);
 
                 v = (TextView) rootView.findViewById(R.id.local_ip_address);
-                int port = CollectPreferences.collectedPreferences.getRpcBindPort();
+                int port = collectedPreferences.getRpcBindPort();
                 v.setText("Node Address: "+getLocalIpAddress()+(port > 0 ? (":"+port) : ":18081"));
 
             } else {
@@ -180,8 +222,7 @@ public class MainSlideFragment extends Fragment {
         v.setText("");
 
         v = (TextView) rootView.findViewById(R.id.disk);
-        String s = String.format("%.1f", getUsedSpace());
-        v.setText(s + " " + context.getString(R.string.disk_used));
+        v.setText("");
 
         v = (TextView) rootView.findViewById(R.id.sync_status);
         v.setText(R.string.daemon_not_running);
@@ -202,7 +243,7 @@ public class MainSlideFragment extends Fragment {
      * @return percentage of free space.
      */
     private float getUsedSpace() {
-        File f = new File(CollectPreferences.collectedPreferences.isUseSDCard() ? CollectPreferences.collectedPreferences.getSdCardPath() : MainActivity.BINARY_PATH);
+        File f = new File(collectedPreferences.isUseSDCard() ? collectedPreferences.getSdCardPath() : MainActivity.BINARY_PATH);
         return f.getFreeSpace() / 1024.0f / 1024.0f / 1024.0f;
     }
 

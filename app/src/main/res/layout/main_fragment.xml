@@ -42,94 +42,18 @@
 
 
     <TextView
-        android:id="@+id/heightTarget"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="start"
-        android:text="------"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heightValue" />
-
-    <TextView
-        android:id="@+id/local_ip_address"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="start"
-        android:text="Local IP Address"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/syncPercentage" />
-
-    <TextView
-        android:id="@+id/heightValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="start"
-        android:text="------"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/compiledMsgAeonVersion" />
-
-    <TextView
-        android:id="@+id/syncPercentage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="start"
-        android:text="Sync Percentage"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heightTarget" />
-
-    <TextView
-        android:id="@+id/compiledMsgAeonVersion"
-        android:layout_width="350dp"
-        android:layout_height="23dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:gravity="start"
-        android:text="Monero Version"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disk" />
-
-    <TextView
-        android:id="@+id/peers"
+        android:id="@+id/downloading"
         android:layout_width="250dp"
-        android:layout_height="21dp"
+        android:layout_height="20dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
         android:gravity="start"
-        android:text="Peers Connected"
+        android:text="Download Rate"
         android:textSize="14sp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/downloading" />
+        app:layout_constraintTop_toBottomOf="@+id/sync_status" />
 
     <TextView
         android:id="@+id/disk"
@@ -145,26 +69,104 @@
         app:layout_constraintTop_toBottomOf="@+id/peers" />
 
     <TextView
-        android:id="@+id/downloading"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
+        android:id="@+id/heightValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:text="------"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compiledMsgAeonVersion" />
+
+    <TextView
+        android:id="@+id/local_ip_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:text="Local IP Address"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syncPercentage" />
+
+    <TextView
+        android:id="@+id/compiledMsgAeonVersion"
+        android:layout_width="350dp"
+        android:layout_height="23dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="4dp"
         android:gravity="start"
-        android:text="Download Rate"
+        android:text="Monero Version"
         android:textSize="14sp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sync_status" />
+        app:layout_constraintTop_toBottomOf="@+id/disk" />
+
+    <TextView
+        android:id="@+id/syncPercentage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:text="Sync Percentage"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightTarget" />
+
+    <TextView
+        android:id="@+id/heightTarget"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:text="------"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightValue" />
+
+    <TextView
+        android:id="@+id/peers"
+        android:layout_width="250dp"
+        android:layout_height="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:gravity="start"
+        android:text="Peers Connected"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/downloading" />
 
     <TextView
         android:id="@+id/sync_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="120dp"
         android:fontFamily="sans-serif"
         android:gravity="start"
         android:text="@string/daemon_not_running"
@@ -172,6 +174,31 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/enable_node"
+        android:layout_width="66dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="24dp"
+        android:defaultValue="false"
+        android:key="enable_node"
+        android:theme="@style/SwitchTheme"
+        android:thumbTint="@color/mainTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Your status is"
+        android:textColor="@color/subtext"
+        app:layout_constraintBottom_toTopOf="@+id/sync_status"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
