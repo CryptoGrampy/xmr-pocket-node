@@ -243,8 +243,8 @@ public class Launcher {
         for (String s : a) {
             ret += s + " ";
         }
-        // set Safe and LMDB sync mode. This should prevent LMDB corruption when android kills the daemon.
-        ret += "--db-sync-mode safe:sync ";
+
+        ret += "--db-sync-mode fast:async:1000000 ";
         return ret;
     }
 
