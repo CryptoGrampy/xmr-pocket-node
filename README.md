@@ -1,8 +1,14 @@
 # Monero PocketNode - A Monero node for your Android Device.
 
-WORK IN PROGRESS.  USE AT YOUR OWN RISK.  PR'S WELCOME!  RECOMMEND USING ON AN OLD PHONE- NOT YOUR DAILY DRIVER.  I DON'T KNOW HOW TO WRITE ANDROID APPS.
+## PocketNode Demo Videos:
 
-This app is meant first and foremost for people with Android phones that have SD slots that are laying in a drawer that can be repurposed into a constantly-plugged-in node. I don't recommend using this on internal storage... You're taking the internal SSD life into your own hands if you use this feature.
+Run a node over Tor in under a minute:  https://nitter.net/CryptoGrampy/status/1504534035707670530
+
+## Overview
+
+THIS IS A WORK IN PROGRESS.  USE AT YOUR OWN RISK.  PR'S/FORKS WELCOME!  RECOMMEND USING ON AN OLD PHONE- NOT YOUR DAILY DRIVER.  I DON'T KNOW HOW TO WRITE ANDROID APPS.
+
+This app is meant first and foremost for people with Android phones that have SD slots that are laying in a drawer that can be repurposed into a constantly-plugged-in, extremely low power node. I don't recommend using this on internal storage... You're taking the internal SSD life into your own hands if you use this feature.
 
 Important things that probably don't work:
 
