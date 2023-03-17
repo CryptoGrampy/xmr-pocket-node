@@ -15,7 +15,7 @@ Important things that probably don't work:
 1. Syncing with the screen off with the phone UNPLUGGED (it SHOULD continue syncing when plugged in).  You can download an app called 'Coffee' if you need to have the phone continue syncing while not plugged in.  
 
 ## Device requirements
-A 64 bit processor with 2 Gb of RAM and for storage, an SD slot or 128 GB of internal storage is recommended to run on the mainnet blockchain.
+A 64 bit processor with 2 GB of RAM and for storage, an SD slot or 128 GB of internal storage is recommended to run on the mainnet blockchain.
 
 ## Install 
 
