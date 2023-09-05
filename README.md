@@ -2,7 +2,7 @@
 
 ## PocketNode Demo Videos:
 
-Run a node over Tor in under a minute:  https://nitter.net/CryptoGrampy/status/1504534035707670530
+Run a node over Tor in under a minute:  https://twitter.com/CryptoGrampy/status/1504534035707670530
 
 ## Overview
 
