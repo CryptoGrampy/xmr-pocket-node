@@ -6,4 +6,5 @@ gradle
 .vscode
 app/release/*
 *.jks
+keystore.jks
 scripts
