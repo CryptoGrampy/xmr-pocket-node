@@ -1,8 +1,7 @@
+Archiving this project 10/16/23:  This project is no longer being maintained.  Forks welcome.  
+
+
 # Monero PocketNode - A Monero node for your Android Device.
-
-## PocketNode Demo Videos:
-
-Run a node over Tor in under a minute:  https://twitter.com/CryptoGrampy/status/1504534035707670530
 
 ## Overview
 
